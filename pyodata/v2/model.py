@@ -1284,7 +1284,7 @@ class StructType(Typ):
     def proprty(self, property_name):
         try:
             return self._properties[property_name]
-        except PropertyError:
+        except KeyError:
             return ''
     def proprties(self):
         return list(self._properties.values())
