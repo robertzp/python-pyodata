@@ -11,7 +11,7 @@ from pyodata.exceptions import PyODataException, HttpError
 def _fetch_metadata(connection, url, logger):
     # download metadata
     logger.info('Fetching metadata')
-    resp = connection.get(url + '$metadata')
+    resp = connection.get(url + '$metadata', verify=False)
 
     logger.debug('Retrieved the response:\n%s\n%s',
                  '\n'.join((f'H: {key}: {value}' for key, value in resp.headers.items())),
