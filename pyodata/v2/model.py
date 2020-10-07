@@ -1282,8 +1282,10 @@ class StructType(Typ):
         return self._is_value_list
 
     def proprty(self, property_name):
-        return self._properties[property_name]
-
+        try:
+            return self._properties[property_name]
+        except PropertyError:
+            return ''
     def proprties(self):
         return list(self._properties.values())
 
